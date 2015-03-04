@@ -4,11 +4,11 @@
 
 		<div class="container">
 
-			<h3 id="data">Insert your data
+			<h3 id="data">輸入您的資料
 				<button type="button"
 				class="choose btn btn-default"
 				ng-model="sample"
-				placeholder="or choose one of our samples"
+				placeholder="或先玩一下示範資料"
 				ng-options="s as s.title for s in samples" bs-select>
 			</button>
 
@@ -33,10 +33,10 @@
 		<div raw-table class="data-table" data-ng-show="dataView == 'table'"></div>
 
 		<div>
-			<div data-ng-show="!loading && !data.length && !error" class="alert"><i class="fa fa-hand-o-right breath-right"></i> Not sure how it works? <a href="http://raw.densitydesign.org/how-it-works/">Take a look at this video</a> or <a href="https://github.com/densitydesign/raw/wiki/FAQs">visit our FAQs</a></div>
-			<div data-ng-show="!loading && !error && data.length" class="alert alert-success"><i class="fa fa-thumbs-up breath-right"></i><strong>{{data.length}}</strong> records in your data have been successfully parsed!</div>
-			<div data-ng-show="error" class="alert alert-warning"><i class="fa fa-thumbs-down breath-right"></i><strong>Whoops!</strong> Please, check line {{error+1}}</div>
-			<div data-ng-show="loading" class="alert"><i class="fa breath-right fa-refresh fa-spin"></i>Loading your data. Please wait.</div>
+			<div data-ng-show="!loading && !data.length && !error" class="alert"><i class="fa fa-hand-o-right breath-right"></i> 摸不著頭緒嗎？<a href="http://raw.densitydesign.org/how-it-works/">先看看這個影片</a> 或 <a href="https://github.com/densitydesign/raw/wiki/FAQs">讀一下 FAQ </a></div>
+			<div data-ng-show="!loading && !error && data.length" class="alert alert-success"><i class="fa fa-thumbs-up breath-right"></i><strong>{{data.length}}</strong> 條資料處理完成</div>
+			<div data-ng-show="error" class="alert alert-warning"><i class="fa fa-thumbs-down breath-right"></i><strong>呃啊！</strong> 請檢查一下第 {{error+1}} 行</div>
+			<div data-ng-show="loading" class="alert"><i class="fa breath-right fa-refresh fa-spin"></i>資料處理中，請稍候...</div>
 		</div>
 
 		</div>
@@ -58,7 +58,7 @@
 				<div>
 
 					<h3 id="layout">
-						Choose a Chart	
+						選擇圖表
 					</h3>
 
 
@@ -89,13 +89,13 @@
 									</div>
 									
 								<div class="col-lg-4 col-md-4" ng-show="category=='Others'">
-									<a href="https://github.com/densitydesign/raw/wiki/Adding-New-Charts">
+									<a href="https://github.com/densitydesign/raw/wiki/Adding-New-Charts" target="_blank">
 										<div class="layout yours">
 											<div class="layout-thumb">
 												<i class="fa fa-plus-square"></i>
 											</div>
 											<p class="layout-inner" >
-												<span class="layout-title">Add your charts!</span>
+                                                                                            <span class="layout-title">開發新圖表！</span>
 											</p>
 										</div>
 									</a>
@@ -125,7 +125,7 @@
 				<div id="mapping" class="row-fluid">
 
 					<div>
-						<h3>Map your Dimensions
+						<h3>建立資料與圖表的對應
 							<a data-toggle="tooltip"
 							data-title="Clear all"
 							ng-click="model.clear()" class="pull-right light"><i class="fa fa-trash-o"></i></a>
@@ -225,7 +225,7 @@
 	<div class="container">
 
 		<h3 id="options">
-			Customize your Visualization
+			調整結果
 		</h3>
 
 		<div class="row">

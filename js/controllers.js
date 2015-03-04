@@ -92,7 +92,7 @@ angular.module('raw.controllers', [])
     $scope.codeMirrorOptions = {
       lineNumbers : true,
       lineWrapping : true,
-      placeholder : 'Paste your text or drop a file here. No data on hand? Try one of our sample datasets!'
+      placeholder : '在此貼上你的資料或是拖個檔案過來吧。手邊沒資料的話，也可以先玩玩示範用的資料喔'
     }
 
     $scope.selectChart = function(chart){
