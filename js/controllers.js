@@ -11,7 +11,8 @@ angular.module('raw.controllers', [])
       { title : 'Movies (dispersions)', url : 'data/dispersions.csv' },
       { title : 'Music (flows)', url : 'data/flows.csv' },
       { title : 'Cocktails (correlations)', url : 'data/correlations.csv' },
-      { title : '五都失業率', url : 'data/jobless.csv' }
+      { title : '五都失業率', url : 'data/jobless.csv' },
+      { title : '設計師實力 (for Radar Chart)', url : 'data/uxdesigner.csv' }
     ]
 
     $scope.$watch('sample', function (sample){
