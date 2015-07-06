@@ -119,7 +119,7 @@
       });
       d3.select(this).append("path").attr({
         class: "char",
-        fill: "none",
+        fill: "rgba(0,0,0,0.1)",
         stroke: function(d) { return colorMap()(d.name); },
         "stroke-width": 3,
         d: function(d) {
