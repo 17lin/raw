@@ -1,4 +1,5 @@
 <div class="wrapper">
+
         <div id="fromSpreadsheetModal" class="modal fade" style="margin-top: 100px">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -8,6 +9,21 @@
                   <input type="text" class="form-control" style="border: 1px solid #ccc" ng-model="spreadsheetURL">
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="button" style="border: 1px solid #ccc" ng-click="readSpreadsheet()">讀取</button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="fromCSVModal" class="modal fade" style="margin-top: 100px">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <label>上傳 CSV 檔：</label>
+                <div class="input-group">
+                  <input id="CSVFile" type="file" class="form-control" style="border: 1px solid #ccc">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" style="border: 1px solid #ccc" ng-click="readCSV()">讀取</button>
                   </span>
                 </div>
               </div>
@@ -39,7 +55,11 @@
 				<i class="type fa fa-cloud breath-left"
 				data-toggle="tooltip"
 				data-title="Spreadsheet"
-				ng-click="uploadFromSpreadsheet()" ng-class="{selected:dataView=='table'}"></i>
+				ng-click="uploadFromSpreadsheet()"></i>
+				<i class="type fa fa-upload breath-left"
+				data-toggle="tooltip"
+				data-title="Upload CSV"
+				ng-click="uploadFromCSV()"></i>
 			</span>
 			<span class="clearfix"></span>
 		</h3>

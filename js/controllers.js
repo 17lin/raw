@@ -90,13 +90,27 @@ angular.module('raw.controllers', [])
         angular.element(this).scope().$apply();
       })
     })
+    $scope.uploadFromCSV = function() {
+      $("#fromCSVModal").modal("show");
+    };
+    $scope.readCSV = function() {
+      var file = $("#CSVFile")[0].files[0]
+      var reader = new FileReader();
+      reader.onload = function(e) { 
+        $scope.$apply(function(){
+          $scope.text = e.target.result;
+        });
+        $("#fromCSVModal").modal("hide");
+      };
+      reader.onerror = function(e) {};
+      reader.readAsText(file, "UTF-8");
+    }
+
     $scope.uploadFromSpreadsheet = function() {
       $("#fromSpreadsheetModal").modal("show");
-    }
+    };
     $scope.readSpreadsheet = function() {
       var ret = /\/d\/([^\/]+)/.exec($scope.spreadsheetURL);
-      console.log("ok",ret);
-      console.log("ok",$scope.spreadsheetURL);
       if(!ret) { return; }
       var key = ret[1];
       var cb = function(data) {
