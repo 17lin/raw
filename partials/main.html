@@ -23,6 +23,13 @@
                 <div class="input-group">
                   <input id="CSVFile" type="file" class="form-control" style="border: 1px solid #ccc">
                   <span class="input-group-btn">
+                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button" style="border: 1px solid #ccc">編碼 <small>{{CSVEncoding}}</small><span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-meu-right">
+                      <li ng-class="{'active':CSVEncoding=='ISO-8859-1'}"><a ng-click="CSVEncoding='ISO-8859-1'">ISO-8859-1</a></li>
+                      <li ng-class="{'active':CSVEncoding=='Big5'}"><a ng-click="CSVEncoding='BIG5'">BIG5</a></li>
+                      <li ng-class="{'active':CSVEncoding=='GB2312'}"><a ng-click="CSVEncoding='GB2312'">GB2312</a></li>
+                      <li ng-class="{'active':CSVEncoding=='UTF-8'}"><a ng-click="CSVEncoding='UTF-8'">UTF-8</a></li>
+                    </ul>
                     <button class="btn btn-default" type="button" style="border: 1px solid #ccc" ng-click="readCSV()">讀取</button>
                   </span>
                 </div>

@@ -90,6 +90,7 @@ angular.module('raw.controllers', [])
         angular.element(this).scope().$apply();
       })
     })
+    $scope.CSVEncoding = "UTF-8";
     $scope.uploadFromCSV = function() {
       $("#fromCSVModal").modal("show");
     };
@@ -103,7 +104,7 @@ angular.module('raw.controllers', [])
         $("#fromCSVModal").modal("hide");
       };
       reader.onerror = function(e) {};
-      reader.readAsText(file, "UTF-8");
+      reader.readAsText(file, $scope.CSVEncoding);
     }
 
     $scope.uploadFromSpreadsheet = function() {
