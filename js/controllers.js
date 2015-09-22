@@ -4,7 +4,7 @@
 
 angular.module('raw.controllers', [])
 
-  .controller('RawCtrl', function ($scope, dataService) {
+  .controller('RawCtrl', function ($scope, dataService, $http) {
 
     $scope.samples = [
       { title : 'Cars (multivariate)', url : 'data/multivariate.csv' },
@@ -90,6 +90,23 @@ angular.module('raw.controllers', [])
         angular.element(this).scope().$apply();
       })
     })
+    $scope.uploadFromSpreadsheet = function() {
+      $("#fromSpreadsheetModal").modal("show");
+    }
+    $scope.readSpreadsheet = function() {
+      var ret = /\/d\/([^\/]+)/.exec($scope.spreadsheetURL);
+      console.log("ok",ret);
+      console.log("ok",$scope.spreadsheetURL);
+      if(!ret) { return; }
+      var key = ret[1];
+      var cb = function(data) {
+        var result = data.map(function(d) { return d.map(function(it) { return '"'+(it.replace(/[\r\n]/,"") || " ")+'"'; }).join(",");}).join("\n");
+        $scope.text = result;
+        $("#fromSpreadsheetModal").modal("hide");
+      };
+      $http({url:"https://spreadsheets.google.com/feeds/list/"+key+"/1/public/values?alt=json",method:"GET"}).success(function(e){var t,n,r,s,c;t={},e.feed.entry.map(function(e){var n,r,s=[];for(n in e)r=/^gsx\$(.+)$/.exec(n),r&&s.push(t[r[1]]=1);return s}),r=[];for(s in t)r.push(s);return n=r,c=[].concat([n]),e.feed.entry.map(function(e){var t,r,s,u,o;for(t=[],r=0,u=(s=n).length;u>r;++r)o=s[r],t.push(e["gsx$"+o].$t);return c=c.concat([t])}),cb(c)}).error(function(){return cb([])});
+
+    };
 
     $scope.codeMirrorOptions = {
       lineNumbers : true,

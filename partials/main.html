@@ -1,4 +1,19 @@
 <div class="wrapper">
+        <div id="fromSpreadsheetModal" class="modal fade" style="margin-top: 100px">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <label>貼上 Google Spreadsheet 的網址：</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" style="border: 1px solid #ccc" ng-model="spreadsheetURL">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" style="border: 1px solid #ccc" ng-click="readSpreadsheet()">讀取</button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
 	<section class="">
 
@@ -21,6 +36,10 @@
 				data-toggle="tooltip"
 				data-title="Table"
 				ng-click="dataView='table'" ng-class="{selected:dataView=='table'}"></i>
+				<i class="type fa fa-cloud breath-left"
+				data-toggle="tooltip"
+				data-title="Spreadsheet"
+				ng-click="uploadFromSpreadsheet()" ng-class="{selected:dataView=='table'}"></i>
 			</span>
 			<span class="clearfix"></span>
 		</h3>
