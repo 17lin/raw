@@ -119,7 +119,7 @@ angular.module('raw.controllers', [])
         $scope.text = result;
         $("#fromSpreadsheetModal").modal("hide");
       };
-      $http({url:"https://spreadsheets.google.com/feeds/list/"+key+"/1/public/values?alt=json",method:"GET"}).success(function(e){var t,n,r,s,c;t={},e.feed.entry.map(function(e){var n,r,s=[];for(n in e)r=/^gsx\$(.+)$/.exec(n),r&&s.push(t[r[1]]=1);return s}),r=[];for(s in t)r.push(s);return n=r,c=[].concat([n]),e.feed.entry.map(function(e){var t,r,s,u,o;for(t=[],r=0,u=(s=n).length;u>r;++r)o=s[r],t.push(e["gsx$"+o].$t);return c=c.concat([t])}),cb(c)}).error(function(){return cb([])});
+      $http({url:"https://spreadsheets.google.com/feeds/list/"+key+"/1/public/values?alt=json",method:"GET"}).success(function(e){var t,n,r,s,c;t={},e.feed.entry.map(function(e){var n,r,s=[];for(n in e)r=/^gsx\$(.+)$/.exec(n),r&&s.push(t[r[1]]=1);return s}),r=[];for(s in t)r.push(s);return n=r,c=[].concat([n]),e.feed.entry.map(function(e){var t,r,s,u,o;for(t=[],r=0,u=(s=n).length;u>r;++r){o=s[r];if(e["gsx$"+o]){t.push(e["gsx$"+o].$t)}else{t.push("")};}return c=c.concat([t])}),cb(c)}).error(function(){return cb([])});
 
     };
 
